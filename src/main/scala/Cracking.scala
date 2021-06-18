@@ -81,4 +81,32 @@ object Cracking extends App{
     helper(string, 0, List())
   }
 
+  /**
+   * 1.4
+   */
+
+
+  def PalindromePermutation(string: String ): Boolean = {
+    val newStr = string.replaceAll("\\s","").toLowerCase
+    val listOfValues = newStr.groupBy(identity).mapValues(_.length).toMap.values.toList
+    if(newStr.length % 2 == 0){
+      if(listOfValues.exists(x => x % 2 == 1)) {
+         false
+      }
+      else {
+         true
+      }
+    }
+    else {
+      if(listOfValues.count(x => x % 2 == 1) != 1) {
+        false
+      }
+      else {
+        true
+      }
+    }
+  }
+
+
+
 }
